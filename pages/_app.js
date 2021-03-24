@@ -1,4 +1,4 @@
-import App from "next/app";
+/* import App from "next/app";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import store from "../redux/store";
@@ -28,4 +28,11 @@ class MyApp extends App {
 
 const makeStore = () => store;
 
-export default withRedux(makeStore)(MyApp);
+export default withRedux(makeStore)(MyApp); */
+
+import React from "react";
+import { wrapper } from "../redux/store";
+
+const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+
+export default wrapper.withRedux(MyApp);
