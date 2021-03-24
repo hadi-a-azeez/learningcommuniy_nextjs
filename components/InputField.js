@@ -1,4 +1,8 @@
-const InputField = ({ label, helperText }) => {
+const InputField = ({ label, helperText, value, onChange }) => {
+  const handleChange = (event) => {
+    const { value } = event.target;
+    onChange(value);
+  };
   return (
     <div className="mt-3 w-4/5">
       <label className="self-start block text-sm font-medium text-gray-600 ">
@@ -7,6 +11,8 @@ const InputField = ({ label, helperText }) => {
       <input
         type="text"
         className="px-3 py-2 mt-2 text-gray-700 relative bg-white  rounded-lg text-sm border border-gray-300  w-full"
+        value={value}
+        onChange={handleChange}
       />
       <label className="self-start block text-sm font-medium text-gray-500 mt-1">
         {helperText}
