@@ -6,7 +6,7 @@ const InputField = ({ label, helperText }) => {
       </label>
       <input
         type="text"
-        className="px-3 py-2 mt-2 text-gray-700 relative bg-white  rounded-lg text-sm border border-gray-500  w-full"
+        className="px-3 py-2 mt-2 text-gray-700 relative bg-white  rounded-lg text-sm border border-gray-300  w-full"
       />
       <label className="self-start block text-sm font-medium text-gray-500 mt-1">
         {helperText}

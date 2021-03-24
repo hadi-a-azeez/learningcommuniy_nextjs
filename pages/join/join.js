@@ -1,5 +1,5 @@
-import InputField from "../components/InputField";
-import SelectField from "../components/SelectField";
+import InputField from "../../components/InputField";
+import SelectField from "../../components/SelectField";
 import "tailwindcss/tailwind.css";
 
 const Join = () => {
