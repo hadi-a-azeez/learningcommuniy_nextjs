@@ -61,7 +61,7 @@ const Join = (props) => {
   };
 
   const handleClickVerify = () => {
-    setIsVerifyBtnLoading(false);
+    setIsVerifyBtnLoading(true);
     const code = userOtp.otp;
     confirmationResult
       .confirm(code)
