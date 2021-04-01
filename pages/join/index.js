@@ -4,10 +4,15 @@ import { connect } from "react-redux";
 import { setInfo, setOtp } from "../../redux/actions/main";
 import firebase from "../../firebase";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Button from "../../components/button";
 
 const Join = (props) => {
   const { userInfo, setInfo, setOtp, userOtp } = props;
   const [isOtpSended, setIsOtpSended] = useState(false);
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
+  const [isVerifyBtnLoading, setIsVerifyBtnLoading] = useState(false);
+  const router = useRouter();
 
   const onChangeHandler = (value) => {
     setInfo(value);
@@ -32,6 +37,7 @@ const Join = (props) => {
 
   const handleClickSend = (event) => {
     event.preventDefault();
+    setIsBtnLoading(true);
     setUpRecaptcha();
     const phoneNumber = "+91" + userInfo.mobileNumber;
     const appVerifier = window.recaptchaVerifier;
@@ -41,6 +47,7 @@ const Join = (props) => {
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
+        setIsBtnLoading(false);
         console.log("otp sended");
         setIsOtpSended(true);
         window.confirmationResult = confirmationResult;
@@ -54,19 +61,22 @@ const Join = (props) => {
   };
 
   const handleClickVerify = () => {
+    setIsVerifyBtnLoading(false);
     const code = userOtp.otp;
     confirmationResult
       .confirm(code)
       .then((result) => {
         // User signed in successfully.
         const user = result.user;
+        setIsVerifyBtnLoading(false);
         console.log("user signed in");
-        alert("User signed in");
+        router.push("/join/details");
         // ...
       })
       .catch((error) => {
         // User couldn't sign in (bad verification code?)
         // ...
+        setIsVerifyBtnLoading(false);
         console.log("user did not signed in");
       });
   };
@@ -86,12 +96,14 @@ const Join = (props) => {
             onChange={onChangeHandler}
           />
           <div id="recaptcha-container" />
-          <button
-            className="mt-3 pl-7 pr-7 p-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
+
+          <Button
+            label="Get OTP"
+            classValues="mt-3 pl-7 pr-7 pt-2 pb-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
             onClick={handleClickSend}
-          >
-            Get OTP
-          </button>
+            isLoading={isBtnLoading}
+            loadingText="Sending OTP"
+          />
         </>
       )}
       {isOtpSended && (
@@ -103,12 +115,14 @@ const Join = (props) => {
             onChange={onChangeHandlerOtp}
           />
           <div id="recaptcha-container" />
-          <button
-            className="mt-3 pl-7 pr-7 p-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
+
+          <Button
+            label="Verify"
+            classValues="mt-3 pl-7 pr-7 pt-2 pb-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
             onClick={handleClickVerify}
-          >
-            Verify
-          </button>
+            isLoading={isVerifyBtnLoading}
+            loadingText="Verifying"
+          />
         </>
       )}
     </div>
