@@ -32,7 +32,7 @@ const InputField = ({ label, helperText, value, type, onChange, disabled }) => {
   );
 };
 
-Button.defaultProps = {
+InputField.defaultProps = {
   disabled: false,
 };
 
