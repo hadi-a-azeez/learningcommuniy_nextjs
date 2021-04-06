@@ -1,7 +1,7 @@
 const Card = ({ heading, subHeading, image }) => {
   return (
     <div
-      class="flex flex-col items-center bg-yellow-100 rounded-3xl p-2 ml-3"
+      className="flex flex-col items-center bg-yellow-100 rounded-3xl p-2 ml-3"
       style={{
         flex: "0 0 100%",
         height: "400px",
