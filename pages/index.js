@@ -9,14 +9,15 @@ const Home = () => {
     <div className="md:container md:mx-auto">
       {/* header starts here */}
       <div className="flex flex-row justify-between p-4 mt-3">
-        <h1 className="text-lg font-bold text-gray-600">Community</h1>
+        <img src="/home-logo.png" className="w-auto h-10"></img>
+        {/* <h1 className="text-lg font-bold text-gray-600">enactus</h1> */}
         <h1 className="text-sm font-normal text-gray-600">Join Now</h1>
       </div>
       {/* header ends here */}
 
       <div className="flex flex-col items-center w-full mt-16">
         <h1 className="font-sans text-4xl font-bold text-center text-gray-800 leading-tight w-11/12">
-          A Learning Community For Mamo College
+          enactus
         </h1>
         <h1 className="font-sans text-xl font-normal text-center text-gray-500 leading-tight mt-3 w-11/12">
           Help you accelerate your learning, and bring you closer to like-minded
@@ -59,7 +60,7 @@ const Home = () => {
       </div>
       {/* cards ends here */}
 
-      {/* waves starts here */}
+      {/* invite friend starts here */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#f1edff"
@@ -83,9 +84,9 @@ const Home = () => {
           INVITE NOW
         </button>
       </div>
-      {/* waves ends here */}
+      {/* invite friend here */}
 
-      {/* rounded rectangle starts here */}
+      {/* community volunteer starts here */}
       <div
         className="flex flex-col items-center p-2 w-full mt-6 mb-6"
         style={{ borderRadius: "50px", background: "#FFF9E8" }}
@@ -102,7 +103,23 @@ const Home = () => {
           APPLY NOW
         </button>
       </div>
-      {/* rounded rectangle ends here */}
+      {/* community volunteer ends here */}
+
+      {/* counsel schedule volunteer */}
+      <div className="flex flex-col items-center p-2 w-full mt-6 mb-6">
+        <img src="/meditation_round.png" className="w-11/12 h-auto" alt="im" />
+        <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12">
+          Mental health help
+        </h1>
+        <h1 className="font-sans text-sm font-normal text-center text-gray-500 leading-tight mt-1 w-11/12">
+          People often don’t get the mental health services they need because
+          they don’t know where to start. Talk to our counselers
+        </h1>
+        <button className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold">
+          Schedule meeting
+        </button>
+      </div>
+      {/* counsel schedule ends here */}
     </div>
   );
 };

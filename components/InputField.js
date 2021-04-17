@@ -18,7 +18,7 @@ const InputField = ({ label, helperText, value, type, onChange, disabled }) => {
         />
       ) : (
         <input
-          type="text"
+          type={type === "password" ? "password" : "text"}
           className="px-3 py-2 mt-2 text-gray-700 relative bg-white  rounded-lg text-sm border border-gray-300  w-full"
           value={value}
           onChange={handleChange}

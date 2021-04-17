@@ -111,7 +111,7 @@ const Join = (props) => {
           <InputField
             label="OTP"
             helperText={`We sent a 6 digit OTP to ${userInfo.mobileNumber}`}
-            valu={userOtp.otp}
+            value={userOtp.otp}
             onChange={onChangeHandlerOtp}
           />
           <div id="recaptcha-container" />
