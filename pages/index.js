@@ -99,7 +99,10 @@ const Home = () => {
           There is so much that you can do to this community, Be a volunteer and
           let's make a change together
         </h1>
-        <button className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold">
+        <button
+          className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold"
+          onClick={() => router.push("/join/volunteer")}
+        >
           APPLY NOW
         </button>
       </div>
@@ -115,7 +118,10 @@ const Home = () => {
           People often don’t get the mental health services they need because
           they don’t know where to start. Talk to our counselers
         </h1>
-        <button className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold">
+        <button
+          className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold"
+          onClick={() => router.push("/join/schedule")}
+        >
           Schedule meeting
         </button>
       </div>

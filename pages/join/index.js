@@ -49,6 +49,7 @@ const Join = (props) => {
         // user in with confirmationResult.confirm(code).
         setIsBtnLoading(false);
         console.log("otp sended");
+        alert("sended");
         setIsOtpSended(true);
         window.confirmationResult = confirmationResult;
         // ...
@@ -56,7 +57,7 @@ const Join = (props) => {
       .catch((error) => {
         // Error; SMS not sent
         // ...
-        console.log("otp did not send");
+        alert(JSON.stringify(error));
       });
   };
 
