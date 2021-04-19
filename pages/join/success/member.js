@@ -28,7 +28,7 @@ const Success = () => {
         Congrats!
       </h1>
       <h1 className="font-sans text-lg font-normal text-center text-gray-500 leading-tight mt-1 mb-3 w-9/12 ">
-        You are a member of enatus now. Join enactus channels to get updated.
+        You are a member of enactus now. Join enactus channels to get updated.
       </h1>
       <Button
         label="Join Whatsapp Group"
