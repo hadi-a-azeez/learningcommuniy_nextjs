@@ -5,6 +5,12 @@ import { useRouter } from "next/router";
 const Home = () => {
   const router = useRouter();
 
+  const handleInviteClick = () => {
+    location.replace(
+      "https://api.whatsapp.com/send?text=Hey%2C%20Join%20enactus%20a%20learning%20community%20for%20students%20to%20meet%20like-minded%20individuals.%0Awelearn.vercel.app%2Fjoin"
+    );
+  };
+
   return (
     <div className="md:container md:mx-auto">
       {/* header starts here */}
@@ -80,7 +86,10 @@ const Home = () => {
         <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12">
           Invite your friends to join the community
         </h1>
-        <button className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold">
+        <button
+          className="mt-4 mb-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold"
+          onClick={handleInviteClick}
+        >
           INVITE NOW
         </button>
       </div>

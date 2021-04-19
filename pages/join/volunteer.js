@@ -3,6 +3,7 @@ import InputField from "../../components/InputField";
 import Button from "../../components/button";
 import { useState } from "react";
 import firebase from "../../firebase";
+import { useRouter } from "next/router";
 
 const Volunteer = () => {
   const [userInfo, setUserInfo] = useState({
@@ -11,6 +12,7 @@ const Volunteer = () => {
   });
   const [isBtnLoading, setIsBtnLoading] = useState(false);
   const db = firebase.firestore();
+  const router = useRouter();
 
   const handleSubmit = async () => {
     setIsBtnLoading(true);
@@ -19,6 +21,7 @@ const Volunteer = () => {
     });
     console.log(user);
     setIsBtnLoading(false);
+    router.push("/join/success/");
   };
   return (
     <>

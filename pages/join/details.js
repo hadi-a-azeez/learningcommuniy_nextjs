@@ -5,6 +5,7 @@ import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import { connect } from "react-redux";
 import firebase from "../../firebase";
+import { useRouter } from "next/router";
 
 const Details = (props) => {
   const { userInfo } = props;
@@ -19,6 +20,7 @@ const Details = (props) => {
   });
   const [isBtnLoading, setIsBtnLoading] = useState(false);
   const db = firebase.firestore();
+  const router = useRouter();
   const stream = [
     { value: 1, label: "Bsc Computer Science" },
     { value: 2, label: "Bsc Mathematics" },
@@ -39,6 +41,7 @@ const Details = (props) => {
     });
     console.log(user);
     setIsBtnLoading(false);
+    router.push("/join/success/member");
   };
 
   return (
