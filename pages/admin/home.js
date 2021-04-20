@@ -5,8 +5,8 @@ const Home = () => {
   const MetricsCard = ({ icon, heading, stat, label }) => {
     return (
       <div
-        className="h-40  rounded-lg flex flex-col items-center"
-        style={{ width: "48%", backgroundColor: "#F9FAFC" }}
+        className="h-40  rounded-lg flex flex-col items-center bg-gray-100"
+        style={{ width: "48%" }}
       >
         <div className="flex flex-row w-4/5 mt-3">
           <div className="flex justify-center items-center rounded-full p-1 bg-yellow-100">
