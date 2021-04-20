@@ -2,6 +2,30 @@ import "tailwindcss/tailwind.css";
 import Button from "../../components/button";
 
 const Home = () => {
+  const MetricsCard = ({ icon, heading, stat, label }) => {
+    return (
+      <div
+        className="h-40  rounded-lg flex flex-col items-center"
+        style={{ width: "48%", backgroundColor: "#F9FAFC" }}
+      >
+        <div className="flex flex-row w-4/5 mt-3">
+          <div className="flex justify-center items-center rounded-full p-1 bg-yellow-100">
+            <img src={icon} alt="s" className="w-5 h-auto" />
+          </div>
+          <h1 className="font-sans text-lg font-semibold text-left text-gray-500 ml-1">
+            {heading}
+          </h1>
+        </div>
+        <h1 className="font-sans text-5xl font-bold text-left text-gray-700 mt-3 w-4/5 ">
+          {stat}
+        </h1>
+        <h1 className="font-sans text-sm font-semibold text-left text-gray-400 w-4/5 mt-3">
+          {label}
+        </h1>
+      </div>
+    );
+  };
+
   return (
     <div className="md:container md:mx-auto flex flex-col items-center">
       {/* header starts here */}
@@ -17,21 +41,26 @@ const Home = () => {
         Overview
       </h1>
       <div className="flex flex-row justify-between w-11/12">
-        <div
-          className="h-40 bg-gray-100 shadow rounded-lg flex flex-col items-center"
-          style={{ width: "48%" }}
-        >
-          <h1 className="font-sans text-lg font-semibold text-left text-gray-500 mt-3 w-4/5 ">
-            Members
-          </h1>
-          <h1 className="font-sans text-5xl font-bold text-left text-gray-700 mt-3 w-4/5 ">
-            299
-          </h1>
-        </div>
-        <div
-          className="h-40 bg-gray-100 shadow-sm rounded-lg"
-          style={{ width: "48%" }}
-        ></div>
+        <MetricsCard
+          heading="Members"
+          stat="298"
+          icon="/smile.png"
+          label="Total regestration"
+        />
+        <MetricsCard
+          heading="Volunteers"
+          stat="39"
+          icon="/love.png"
+          label="Total applicants"
+        />
+      </div>
+      <div className="flex flex-row justify-between w-11/12 mt-4">
+        <MetricsCard
+          heading="Members"
+          stat="298"
+          icon="/smile.png"
+          label="Total regestration"
+        />
       </div>
     </div>
   );
