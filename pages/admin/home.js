@@ -6,7 +6,7 @@ const Home = () => {
   const MetricsCard = ({ icon, heading, stat, label }) => {
     return (
       <div
-        className={`h-40  rounded-lg flex flex-col items-center  ${styles.metrics_card}`}
+        className={`h-40  rounded-lg flex flex-col items-center border border-gray-200`}
         style={{ width: "48%" }}
       >
         <div className="flex flex-row w-4/5 mt-3">
@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   return (
-    <div className="md:container md:mx-auto flex flex-col items-center bg-gray-100 min-h-screen">
+    <div className="md:container md:mx-auto flex flex-col items-center  min-h-screen">
       {/* header starts here */}
       <div className="flex flex-row justify-between p-4 mt-3 w-full">
         <img src="/home-logo.png" className="w-auto h-10"></img>
