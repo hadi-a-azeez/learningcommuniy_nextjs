@@ -56,10 +56,10 @@ const Home = () => {
       </div>
       <div className="flex flex-row justify-between w-11/12 mt-4">
         <MetricsCard
-          heading="Members"
-          stat="298"
-          icon="/smile.png"
-          label="Total regestration"
+          heading="Schedules"
+          stat="32"
+          icon="/schedule.png"
+          label="Total applicants"
         />
       </div>
     </div>
