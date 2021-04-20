@@ -5,7 +5,7 @@ const Home = () => {
   const MetricsCard = ({ icon, heading, stat, label }) => {
     return (
       <div
-        className="h-40  rounded-lg flex flex-col items-center bg-gray-100"
+        className="h-40  rounded-lg flex flex-col items-center border border-gray-200"
         style={{ width: "48%" }}
       >
         <div className="flex flex-row w-4/5 mt-3">
@@ -62,6 +62,9 @@ const Home = () => {
           label="Total applicants"
         />
       </div>
+      <h1 className="font-sans text-lg font-semibold text-left text-gray-500 mt-4 mb-3 w-11/12 ">
+        Manage
+      </h1>
     </div>
   );
 };
