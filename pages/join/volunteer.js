@@ -4,12 +4,14 @@ import Button from "../../components/button";
 import { useState } from "react";
 import firebase from "../../firebase";
 import { useRouter } from "next/router";
+import { Validators } from "../../utilities/validators";
 
 const Volunteer = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     mobileNumber: "",
   });
+  const [error, setError] = useState(true);
   const [isBtnLoading, setIsBtnLoading] = useState(false);
   const db = firebase.firestore();
   const router = useRouter();
@@ -39,6 +41,9 @@ const Volunteer = () => {
               name: value,
             });
           }}
+          validators={[
+            { check: Validators.required, message: "This field is required" },
+          ]}
         />
         <InputField
           label="Mobile Number"
@@ -49,6 +54,12 @@ const Volunteer = () => {
               mobileNumber: value,
             });
           }}
+          validators={[
+            {
+              check: Validators.phoneNumber,
+              message: "Phone number should be 10 numbers",
+            },
+          ]}
         />
         <Button
           label="Submit"

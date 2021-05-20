@@ -1,6 +1,20 @@
-const InputField = ({ label, helperText, value, type, onChange, disabled }) => {
+import { useState } from "react";
+import { validateInput } from "../utilities/validators";
+
+const InputField = ({
+  label,
+  helperText,
+  value,
+  type,
+  onChange,
+  disabled,
+  validators,
+}) => {
+  const [error, setError] = useState(false);
+
   const handleChange = (event) => {
     const { value } = event.target;
+    setError(validateInput(validators, value));
     onChange(value);
   };
 
@@ -28,12 +42,18 @@ const InputField = ({ label, helperText, value, type, onChange, disabled }) => {
       <label className="self-start block text-sm font-medium text-gray-400 mt-1">
         {helperText}
       </label>
+      {error && (
+        <label className="self-start block text-sm font-medium text-red-400 mt-1">
+          {error.message}
+        </label>
+      )}
     </div>
   );
 };
 
 InputField.defaultProps = {
   disabled: false,
+  validators: [],
 };
 
 export default InputField;
