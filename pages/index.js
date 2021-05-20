@@ -15,7 +15,7 @@ const Home = () => {
     <div className="md:container md:mx-auto">
       {/* header starts here */}
       <div className="flex flex-row justify-between p-4 mt-3">
-        <img src="/home-logo.png" className="w-auto h-10"></img>
+        <img src="/logo_b.png" className="w-auto h-10"></img>
         {/* <h1 className="text-lg font-bold text-gray-600">enactus</h1> */}
         <h1 className="text-sm font-normal text-gray-600">Join Now</h1>
       </div>
@@ -23,7 +23,7 @@ const Home = () => {
 
       <div className="flex flex-col items-center w-full mt-16">
         <h1 className="font-sans text-4xl font-bold text-center text-gray-800 leading-tight w-11/12">
-          enactus
+          TinkerHub
         </h1>
         <h1 className="font-sans text-xl font-normal text-center text-gray-500 leading-tight mt-3 w-11/12">
           Help you accelerate your learning, and bring you closer to like-minded
