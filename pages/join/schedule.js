@@ -2,24 +2,24 @@ import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import InputField from "../../components/InputField";
 import Button from "../../components/button";
-import firebase from "../../firebase";
+//import firebase from "../../firebase";
 import { useRouter } from "next/router";
+import supabase from "../../supabase";
 
 const Schedule = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
-    mobileNumber: "",
+    mobile_number: "",
   });
   const [isBtnLoading, setIsBtnLoading] = useState(false);
-  const db = firebase.firestore();
+  //const db = firebase.firestore();
   const router = useRouter();
 
   const handleSubmit = async () => {
     setIsBtnLoading(true);
-    const user = await db.collection("schedules").add({
-      userInfo,
-    });
-    console.log(user);
+    const { data, error } = await supabase.from("schedules").insert([userInfo]);
+    console.log(data);
+    if (error) console.log(error);
     setIsBtnLoading(false);
     router.push("/join/success/");
   };
@@ -48,7 +48,7 @@ const Schedule = () => {
         onChange={(value) => {
           setUserInfo({
             ...userInfo,
-            mobileNumber: value,
+            mobile_number: value,
           });
         }}
       />

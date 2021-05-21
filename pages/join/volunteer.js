@@ -2,26 +2,28 @@ import "tailwindcss/tailwind.css";
 import InputField from "../../components/InputField";
 import Button from "../../components/button";
 import { useState } from "react";
-import firebase from "../../firebase";
+//import firebase from "../../firebase";
 import { useRouter } from "next/router";
 import { Validators } from "../../utilities/validators";
+import supabase from "../../supabase";
 
 const Volunteer = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
-    mobileNumber: "",
+    mobile_number: "",
   });
-  const [error, setError] = useState(true);
+  //const [error, setError] = useState(true);
   const [isBtnLoading, setIsBtnLoading] = useState(false);
-  const db = firebase.firestore();
+  //const db = firebase.firestore();
   const router = useRouter();
 
   const handleSubmit = async () => {
     setIsBtnLoading(true);
-    const user = await db.collection("volunteers").add({
-      userInfo,
-    });
-    console.log(user);
+    const { data, error } = await supabase
+      .from("volunteers")
+      .insert([userInfo]);
+    console.log(data);
+    if (error) console.log(error);
     setIsBtnLoading(false);
     router.push("/join/success/");
   };
@@ -51,7 +53,7 @@ const Volunteer = () => {
           onChange={(value) => {
             setUserInfo({
               ...userInfo,
-              mobileNumber: value,
+              mobile_number: value,
             });
           }}
           validators={[

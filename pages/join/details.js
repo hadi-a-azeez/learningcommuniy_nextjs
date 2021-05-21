@@ -6,20 +6,21 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import firebase from "../../firebase";
 import { useRouter } from "next/router";
+import supabase from "../../supabase";
 
 const Details = (props) => {
   const { userInfo } = props;
   const [userDetails, setUserDetails] = useState({
-    phoneNumber: userInfo.mobileNumber,
+    phone_number: userInfo.mobileNumber,
     name: "",
-    nickName: "",
+    nick_name: "",
     email: "",
     type: "1",
     stream: "1",
     reason: "",
   });
   const [isBtnLoading, setIsBtnLoading] = useState(false);
-  const db = firebase.firestore();
+  //const db = firebase.firestore();
   const router = useRouter();
   const stream = [
     { value: 1, label: "Bsc Computer Science" },
@@ -36,10 +37,15 @@ const Details = (props) => {
 
   const handleSubmit = async () => {
     setIsBtnLoading(true);
-    const user = await db.collection("members").add({
+    /*   const user = await db.collection("members").add({
       userDetails,
     });
-    console.log(user);
+    console.log(user); */
+    const { data, error } = await supabase
+      .from("members")
+      .insert([userDetails]);
+    console.log(data);
+    if (error) console.log(error);
     setIsBtnLoading(false);
     router.push("/join/success/member");
   };
@@ -71,7 +77,7 @@ const Details = (props) => {
         onChange={(value) => {
           setUserDetails({
             ...userDetails,
-            nickName: value,
+            nick_name: value,
           });
         }}
       />
