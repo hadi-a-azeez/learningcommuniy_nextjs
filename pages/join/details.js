@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 //import firebase from "../../firebase";
 import { useRouter } from "next/router";
 import supabase from "../../supabase";
+import { Validators } from "../../utilities/validators";
 
 const Details = (props) => {
   const { userInfo } = props;
@@ -37,10 +38,6 @@ const Details = (props) => {
 
   const handleSubmit = async () => {
     setIsBtnLoading(true);
-    /*   const user = await db.collection("members").add({
-      userDetails,
-    });
-    console.log(user); */
     const { data, error } = await supabase
       .from("members")
       .insert([userDetails]);
@@ -70,6 +67,9 @@ const Details = (props) => {
             name: value,
           });
         }}
+        validators={[
+          { check: Validators.required, message: "This field is required" },
+        ]}
       />
       <InputField
         label="Call me"
