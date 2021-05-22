@@ -4,7 +4,7 @@ import Button from "../../components/button";
 import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import { connect } from "react-redux";
-import firebase from "../../firebase";
+//import firebase from "../../firebase";
 import { useRouter } from "next/router";
 import supabase from "../../supabase";
 
@@ -104,16 +104,18 @@ const Details = (props) => {
           });
         }}
       />
-      <SelectField
-        label="My stream of study is"
-        selectOptions={stream}
-        onChange={(value) => {
-          setUserDetails({
-            ...userDetails,
-            stream: value,
-          });
-        }}
-      />
+      {userDetails.type === "1" && (
+        <SelectField
+          label="My stream of study is"
+          selectOptions={stream}
+          onChange={(value) => {
+            setUserDetails({
+              ...userDetails,
+              stream: value,
+            });
+          }}
+        />
+      )}
       <InputField
         type="textarea"
         label="I want to join community because"

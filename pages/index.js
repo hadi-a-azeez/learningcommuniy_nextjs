@@ -7,7 +7,7 @@ const Home = () => {
 
   const handleInviteClick = () => {
     location.replace(
-      "https://api.whatsapp.com/send?text=Hey%2C%20Join%20enactus%20a%20learning%20community%20for%20students%20to%20meet%20like-minded%20individuals.%0Awelearn.vercel.app%2Fjoin"
+      "https://api.whatsapp.com/send?text=Hey%2C%20Join%20TinkerHub%20a%20learning%20community%20for%20students%20to%20meet%20like-minded%20individuals.%0Awelearn.vercel.app%2Fjoin"
     );
   };
 
