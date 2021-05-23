@@ -1,19 +1,18 @@
 import "tailwindcss/tailwind.css";
 import Button from "../../components/button";
 //import styles from "./admin.module.css";
-import supabase from "../../supabase";
 import { useEffect, useState } from "react";
+import { getMembersCount } from "../../utilities/api";
 
 const Home = () => {
-  const [members, setMembers] = useState("-");
+  const [membersCount, setMembersCount] = useState("-");
+  const [volunteerCount, setVolunteerCount] = useState("-");
 
   useEffect(() => {
     const getData = async () => {
-      const { data, error, count } = await supabase
-        .from("members")
-        .select("id", { count: "exact" });
-      if (error) console.log(error);
-      else setMembers(count);
+      const membersCountResponse = await getMembersCount();
+
+      setMembers(membersCountResponse);
     };
     getData();
   }, []);
@@ -77,7 +76,7 @@ const Home = () => {
       <div className="flex flex-row justify-between w-11/12">
         <MetricsCard
           heading="Members"
-          stat={members}
+          stat={membersCount}
           icon="/smile.png"
           label="Total regestration"
         />
