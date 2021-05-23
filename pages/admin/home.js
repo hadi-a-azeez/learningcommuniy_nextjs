@@ -1,8 +1,23 @@
 import "tailwindcss/tailwind.css";
 import Button from "../../components/button";
-import styles from "./admin.module.css";
+//import styles from "./admin.module.css";
+import supabase from "../../supabase";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [members, setMembers] = useState("-");
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data, error, count } = await supabase
+        .from("members")
+        .select("id", { count: "exact" });
+      if (error) console.log(error);
+      else setMembers(count);
+    };
+    getData();
+  }, []);
+
   const MetricsCard = ({ icon, heading, stat, label }) => {
     return (
       <div
@@ -62,7 +77,7 @@ const Home = () => {
       <div className="flex flex-row justify-between w-11/12">
         <MetricsCard
           heading="Members"
-          stat="298"
+          stat={members}
           icon="/smile.png"
           label="Total regestration"
         />
