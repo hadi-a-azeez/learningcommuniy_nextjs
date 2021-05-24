@@ -2,17 +2,26 @@ import "tailwindcss/tailwind.css";
 import Button from "../../components/button";
 //import styles from "./admin.module.css";
 import { useEffect, useState } from "react";
-import { getMembersCount } from "../../utilities/api";
+import {
+  getMembersCount,
+  getVolunteersCount,
+  getSchedulesCount,
+} from "../../utilities/api";
 
 const Home = () => {
   const [membersCount, setMembersCount] = useState("-");
   const [volunteerCount, setVolunteerCount] = useState("-");
+  const [schedulesCount, setSchedulesCount] = useState("-");
 
   useEffect(() => {
     const getData = async () => {
       const membersCountResponse = await getMembersCount();
+      const volunteersCountResponse = await getVolunteersCount();
+      const schedulesCountResponse = await getSchedulesCount();
 
-      setMembers(membersCountResponse);
+      setMembersCount(membersCountResponse);
+      setVolunteerCount(volunteersCountResponse);
+      setSchedulesCount(schedulesCountResponse);
     };
     getData();
   }, []);
@@ -82,7 +91,7 @@ const Home = () => {
         />
         <MetricsCard
           heading="Volunteers"
-          stat="39"
+          stat={volunteerCount}
           icon="/love.png"
           label="Total applicants"
         />
@@ -90,7 +99,7 @@ const Home = () => {
       <div className="flex flex-row justify-between w-11/12 mt-4">
         <MetricsCard
           heading="Schedules"
-          stat="32"
+          stat={schedulesCount}
           icon="/schedule.png"
           label="Total applicants"
         />
