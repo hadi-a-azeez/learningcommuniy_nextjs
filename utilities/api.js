@@ -21,3 +21,8 @@ export const getSchedulesCount = async () => {
   if (error) console.log(error);
   else return count;
 };
+export const getAllMembers = async () => {
+  const { data, error } = await supabase.from("members").select("*");
+  if (error) console.log(error);
+  else return data;
+};

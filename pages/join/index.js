@@ -54,8 +54,7 @@ const Join = (props) => {
         // ...
       })
       .catch((error) => {
-        // Error; SMS not sent
-        // ...
+        console.log(error);
       });
   };
 
