@@ -3,17 +3,16 @@ import Button from "../../components/button";
 import { useState } from "react";
 import supabase from "../../supabase";
 
-const Login = () => {
+const Signup = () => {
   const [userDetails, setUserDetails] = useState({
     email: "",
     password: "",
   });
 
   const handleSignUpClick = async () => {
-    const { user, session, error } = await supabase.auth.signIn(userDetails);
+    const { user, session, error } = await supabase.auth.signUp(userDetails);
     if (user) console.log(user);
     if (error) console.log(error);
-    if (session) console.log(session);
   };
   return (
     <div className="md:container md:mx-auto flex flex-col items-center">
@@ -44,7 +43,7 @@ const Login = () => {
         }}
       />
       <Button
-        label="Log in"
+        label="Sign up"
         classValues="mt-3 mb-5 pl-7 pr-7 pt-2 pb-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
         onClick={handleSignUpClick}
       />
@@ -52,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
