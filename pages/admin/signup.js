@@ -8,11 +8,14 @@ const Signup = () => {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUpClick = async () => {
+    setIsLoading(true);
     const { user, session, error } = await supabase.auth.signUp(userDetails);
     if (user) console.log(user);
     if (error) console.log(error);
+    setIsLoading(false);
   };
   return (
     <div className="md:container md:mx-auto flex flex-col items-center">
@@ -46,6 +49,7 @@ const Signup = () => {
         label="Sign up"
         classValues="mt-3 mb-5 pl-7 pr-7 pt-2 pb-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
         onClick={handleSignUpClick}
+        isLoading={isLoading}
       />
     </div>
   );
