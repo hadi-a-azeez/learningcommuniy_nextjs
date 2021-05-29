@@ -17,6 +17,7 @@ const Signup = () => {
     if (error) console.log(error);
     setIsLoading(false);
   };
+
   return (
     <div className="md:container md:mx-auto flex flex-col items-center">
       <img src="/input.jpg" className="w-full" alt="s" />
