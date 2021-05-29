@@ -7,12 +7,13 @@
 }
 .header {
   width: 90%;
+  height: 70px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .metrics_card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(46, 45, 45, 0.1);
   border-radius: 10px;
   border: 1px solid gray;
   width: 90%;

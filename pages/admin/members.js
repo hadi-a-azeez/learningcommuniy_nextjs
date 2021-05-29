@@ -27,7 +27,7 @@ const Members = () => {
     <div className={styles.container}>
       {/* Header starts here */}
       <div className={styles.header}>
-        <h2>back</h2>
+        <img src="/back_icon" height="50px" width="auto" />
       </div>
       {/* Header ends here */}
       {/* cards starts herer */}
