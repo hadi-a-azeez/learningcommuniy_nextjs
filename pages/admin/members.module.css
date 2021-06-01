@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+.header {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading {
+  font-size: 20px;
+  margin-left: 0.5rem;
+  color: #08bd80;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.back_icon {
+  height: 30px;
+  width: auto;
+  filter: invert(74%) sepia(69%) saturate(6141%) hue-rotate(127deg)
+    brightness(100%) contrast(94%);
+}
+.metrics_card {
+  border-radius: 10px;
+  border: 1px solid rgb(197, 197, 197);
+  width: 90%;
+  height: auto;
+  padding: 7px;
+  padding: 1rem;
+  font-size: 20px;
+  margin-top: 1rem;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  background: #08bd80;
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+}
+.badge_text {
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+.member_name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 0.2rem;
+}

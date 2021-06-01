@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "tailwindcss/tailwind.css";
 //import Button from "../../components/button";
-import styles from "./admin.module.css";
+import styles from "./members.module.css";
 import { getAllMembers } from "../../utilities/api";
 
 const Members = () => {
@@ -19,7 +19,10 @@ const Members = () => {
   const MembersCard = ({ name }) => {
     return (
       <div className={styles.metrics_card}>
-        <h1>{name}</h1>
+        <div className={styles.badge}>
+          <h1 className={styles.badge_text}>Student</h1>
+        </div>
+        <h1 className={styles.member_name}>{name}</h1>
       </div>
     );
   };
@@ -27,7 +30,8 @@ const Members = () => {
     <div className={styles.container}>
       {/* Header starts here */}
       <div className={styles.header}>
-        <img src="/back_icon" height="50px" width="auto" />
+        <img src="/back_icon.svg" className={styles.back_icon} />
+        <h1 className={styles.heading}>Members</h1>
       </div>
       {/* Header ends here */}
       {/* cards starts herer */}
