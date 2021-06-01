@@ -22,7 +22,9 @@ export const getSchedulesCount = async () => {
   else return count;
 };
 export const getAllMembers = async () => {
-  const { data, error } = await supabase.from("members").select("*");
+  const { data, error } = await supabase
+    .from("members")
+    .select(`*,stream(stream)`);
   if (error) console.log(error);
   else return data;
 };

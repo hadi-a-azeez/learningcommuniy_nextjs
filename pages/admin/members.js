@@ -16,13 +16,14 @@ const Members = () => {
     getData();
   }, []);
 
-  const MembersCard = ({ name }) => {
+  const MembersCard = ({ name, stream }) => {
     return (
       <div className={styles.metrics_card}>
         <div className={styles.badge}>
           <h1 className={styles.badge_text}>Student</h1>
         </div>
         <h1 className={styles.member_name}>{name}</h1>
+        <h1 className={styles.member_stream}>{stream}</h1>
       </div>
     );
   };
@@ -36,7 +37,11 @@ const Members = () => {
       {/* Header ends here */}
       {/* cards starts herer */}
       {allMembers.map((member) => (
-        <MembersCard name={member.name} key={member.id} />
+        <MembersCard
+          name={member.name}
+          key={member.id}
+          stream={member.stream.stream}
+        />
       ))}
       {/* cards ends herer */}
     </div>
