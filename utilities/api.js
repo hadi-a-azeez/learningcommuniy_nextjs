@@ -28,3 +28,11 @@ export const getAllMembers = async () => {
   if (error) console.log(error);
   else return data;
 };
+export const getMemberDetails = async (id) => {
+  const { data, error } = await supabase
+    .from("members")
+    .select(`*,stream(stream)`)
+    .eq("id", id);
+  if (error) console.log(error);
+  else return data;
+};
