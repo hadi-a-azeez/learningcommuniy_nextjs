@@ -15,6 +15,7 @@ const MemberDetails = () => {
   return (
     <>
       <h1>{member[0].name}</h1>
+      <h1>{member[0].phone_number}</h1>
     </>
   );
 };
