@@ -22,6 +22,12 @@ const MemberDetails = () => {
       </div>
       {/* Header ends here */}
       <div className={styles.circle} />
+      {member.length && (
+        <>
+          <h1>{member[0].name}</h1>
+          <h1>{member[0].phone_number}</h1>
+        </>
+      )}
     </div>
   );
 };
