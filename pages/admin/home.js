@@ -81,16 +81,19 @@ const Home = () => {
         heading="Members"
         label="Manage membership forms"
         icon="/student.png"
+        onClick={() => router.push("/admin/members")}
       />
       <ButtonCards
         heading="Volunteers"
         label="Manage volunteer forms"
         icon="/love.png"
+        onClick={() => router.push("/admin/members")}
       />
       <ButtonCards
         heading="Schedules"
         label="Manage schedule forms"
         icon="/schedule.png"
+        onClick={() => router.push("/admin/members")}
       />
       {/* Card ends here */}
       <div className="mb-4"></div>

@@ -1,6 +1,9 @@
-const ButtonCards = ({ heading, label, icon }) => {
+const ButtonCards = ({ heading, label, icon, onClick }) => {
   return (
-    <div className="flex flex-row h-auto w-11/12  rounded-lg items-center border border-gray-200 p-3 mt-3">
+    <div
+      className="flex flex-row h-auto w-11/12  rounded-lg items-center border border-gray-200 p-3 mt-3"
+      onClick={onClick}
+    >
       <div className="flex justify-center items-center rounded-full p-5 bg-gray-100 h-auto w-auto self-start ">
         <img src={icon} alt="" className="w-12 h-auto" />
       </div>
