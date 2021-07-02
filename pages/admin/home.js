@@ -9,11 +9,13 @@ import {
 } from "../../utilities/api";
 import MetricsCard from "../../components/metricsCard";
 import ButtonCards from "../../components/buttonCards";
+import { useRouter } from "next/router";
 
 const Home = () => {
   const [membersCount, setMembersCount] = useState("-");
   const [volunteerCount, setVolunteerCount] = useState("-");
   const [schedulesCount, setSchedulesCount] = useState("-");
+  const router = useRouter();
 
   useEffect(() => {
     const getData = async () => {
@@ -28,6 +30,12 @@ const Home = () => {
     getData();
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loginExpiry");
+    router.push("/admin/login");
+  };
+
   return (
     <div className="md:container md:mx-auto flex flex-col items-center  min-h-screen">
       {/* header starts here */}
@@ -36,6 +44,7 @@ const Home = () => {
         <Button
           label="Sign Out"
           classValues="mt-1 pl-4 pr-4 pt-1 pb-1 bg-green-500 text-white rounded-lg font-semibold"
+          onClick={logout}
         />
       </div>
       {/* header ends here */}
