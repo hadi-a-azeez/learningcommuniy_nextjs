@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
 .container {
   display: flex;
   flex-direction: column;
@@ -18,6 +20,7 @@
   color: #08bd80;
   font-weight: 500;
   text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
 }
 .back_icon {
   height: 30px;
@@ -29,5 +32,65 @@
   width: 7rem;
   height: 7rem;
   border-radius: 50%;
-  background-color: gray;
+  background-color: rgb(233, 233, 233);
+}
+.name {
+  font-size: 25px;
+  color: #141414;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0.5rem;
+}
+.badge {
+  padding: 0.3rem 0.6rem;
+  background-color: #08bd80;
+  border-radius: 0.3rem;
+}
+.badge_text {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+.icons_wraper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+.details_wraper {
+  padding: 0.4rem;
+  margin-top: 1rem;
+  width: 90%;
+  height: auto;
+  border-radius: 0.8rem;
+  border: 0.1rem solid rgb(182, 182, 182);
+}
+.text_wraper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  align-items: center;
+  margin-top: 1rem;
+}
+.desc {
+  font-size: 19px;
+  color: #646464;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  text-align: center;
+}
+.details {
+  font-size: 20px;
+  color: #080808;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  margin-left: 0.7rem;
 }

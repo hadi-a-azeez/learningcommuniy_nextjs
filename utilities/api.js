@@ -36,3 +36,13 @@ export const getMemberDetails = async (id) => {
   if (error) console.log(error);
   else return data;
 };
+export const getAllVolunteers = async () => {
+  const { data, error } = await supabase.from("volunteers").select("*");
+  if (error) console.log(error);
+  else return data;
+};
+export const getAllSchedules = async () => {
+  const { data, error } = await supabase.from("schedules").select("*");
+  if (error) console.log(error);
+  else return data;
+};

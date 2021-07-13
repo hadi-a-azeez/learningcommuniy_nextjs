@@ -87,13 +87,13 @@ const Home = () => {
         heading="Volunteers"
         label="Manage volunteer forms"
         icon="/love.png"
-        onClick={() => router.push("/admin/members")}
+        onClick={() => router.push("/admin/volunteers")}
       />
       <ButtonCards
         heading="Schedules"
         label="Manage schedule forms"
         icon="/schedule.png"
-        onClick={() => router.push("/admin/members")}
+        onClick={() => router.push("/admin/schedules")}
       />
       {/* Card ends here */}
       <div className="mb-4"></div>

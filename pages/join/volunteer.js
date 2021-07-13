@@ -10,7 +10,7 @@ import supabase from "../../supabase";
 const Volunteer = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
-    mobile_number: "",
+    phone_number: "",
   });
   //const [error, setError] = useState(true);
   const [isBtnLoading, setIsBtnLoading] = useState(false);
@@ -53,7 +53,7 @@ const Volunteer = () => {
           onChange={(value) => {
             setUserInfo({
               ...userInfo,
-              mobile_number: value,
+              phone_number: value,
             });
           }}
           validators={[
