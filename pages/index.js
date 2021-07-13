@@ -54,13 +54,8 @@ const Home = () => {
           image="real_world.png"
         />
         <Card
-          heading="Peer-to-peer mentorship"
-          subHeading="Improve communication and interpersonal skills"
-          image="/peertopeer.png"
-        />
-        <Card
-          heading="Peer-to-peer mentorship"
-          subHeading="Improve communication and interpersonal skills"
+          heading="Mental health help"
+          subHeading="Schedule a meeting with councelor"
           image="/peertopeer.png"
         />
       </div>
