@@ -1,13 +1,13 @@
 import "tailwindcss/tailwind.css";
 import Card from "../components/card";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
 
 const Home = () => {
   const router = useRouter();
-
   const handleInviteClick = () => {
     location.replace(
-      "https://api.whatsapp.com/send?text=Hey%2C%20join%20TinkerHub%20Mamoc%20for%20meeting%20like%20minded%20individuals%20%0Atinkerhubmamoc.vercel.app"
+      "https://api.whatsapp.com/send?text=Hey%2C%20join%20Learnbase%20%20for%20meeting%20like%20minded%20individuals%20%0ALearnbase.vercel.app"
     );
   };
 
@@ -15,17 +15,22 @@ const Home = () => {
     <div className="md:container md:mx-auto">
       {/* header starts here */}
       <div className="flex flex-row justify-between p-4 mt-3">
-        <img src="/logo_b.png" className="w-auto h-10"></img>
+        <img src="/logo_b.png" className="w-auto h-20"></img>
         {/* <h1 className="text-lg font-bold text-gray-600">enactus</h1> */}
-        <h1 className="text-sm font-normal text-gray-600">Join Now</h1>
+        <h1
+          className="text-sm font-normal text-gray-600"
+          onClick={() => router.push("/join")}
+        >
+          Join Now
+        </h1>
       </div>
       {/* header ends here */}
 
       <div className="flex flex-col items-center w-full mt-16">
-        <h1 className="font-sans text-4xl font-bold text-center text-gray-800 leading-tight w-11/12">
-          TinkerHub
+        <h1 className="font-sans text-4xl md:text-7xl font-bold text-center text-gray-800 leading-tight w-11/12">
+          Learn. Share. Connect.
         </h1>
-        <h1 className="font-sans text-xl font-normal text-center text-gray-500 leading-tight mt-3 w-11/12">
+        <h1 className="font-sans text-xl font-normal text-center text-gray-500 leading-tight mt-3 w-11/12 lg:w-3/4">
           Help you accelerate your learning, and bring you closer to like-minded
           individuals, who could all be a valuable asset in your journey
         </h1>
@@ -35,12 +40,16 @@ const Home = () => {
         >
           JOIN NOW
         </button>
-        <img src="/humans_all.png" className="w-full h-auto mt-7" alt="im" />
+        <img
+          src="/humans_all.png"
+          className="w-full h-auto mt-7 md:w-2/4"
+          alt="im"
+        />
       </div>
 
       {/* cards starts here */}
       <div
-        className="flex flex-row items-center w-full mt-3 mb-6 overflow-scroll p-8"
+        className="flex flex-row items-center w-full mt-3 mb-6 overflow-scroll p-8 sm:overflow-hidden"
         style={{ scrollSnapType: "x mandatory" }}
       >
         <Card
@@ -77,7 +86,7 @@ const Home = () => {
           height: "auto",
         }}
       >
-        <img src="/invite.png" className="w-full h-auto" alt="im" />
+        <img src="/invite.png" className="w-full h-auto md:w-2/4" alt="im" />
         <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12">
           Invite your friends to join the community
         </h1>
@@ -95,7 +104,7 @@ const Home = () => {
         className="flex flex-col items-center p-2 w-full mt-6 mb-6"
         style={{ borderRadius: "50px", background: "#FFF9E8" }}
       >
-        <img src="/volunteer.png" className="w-full h-auto" alt="im" />
+        <img src="/volunteer.png" className="w-full h-auto md:w-1/4" alt="im" />
         <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12">
           Be a community volunteer
         </h1>
@@ -114,11 +123,15 @@ const Home = () => {
 
       {/* counsel schedule volunteer */}
       <div className="flex flex-col items-center p-2 w-full mt-6 mb-6">
-        <img src="/meditation_round.png" className="w-11/12 h-auto" alt="im" />
-        <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12">
+        <img
+          src="/meditation_round.png"
+          className="w-11/12 h-auto md:w-2/4"
+          alt="im"
+        />
+        <h1 className="font-sans text-2xl font-bold text-center text-gray-700 leading-tight w-11/12 mt-6">
           Mental health help
         </h1>
-        <h1 className="font-sans text-sm font-normal text-center text-gray-500 leading-tight mt-1 w-11/12">
+        <h1 className="font-sans text-sm font-normal text-center text-gray-500 leading-tight mt-1 w-11/12 md:w-96">
           People often don’t get the mental health services they need because
           they don’t know where to start. Talk to our counselers
         </h1>

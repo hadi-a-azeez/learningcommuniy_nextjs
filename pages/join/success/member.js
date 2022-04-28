@@ -14,7 +14,7 @@ const Success = () => {
   };
 
   const handleInstagramClick = () => {
-    location.replace("https://www.instagram.com/tinkerhub.mamoc/");
+    location.replace("https://www.instagram.com/Learnbase/");
   };
 
   const handleTelegramClick = () => {
@@ -28,7 +28,7 @@ const Success = () => {
         Congrats!
       </h1>
       <h1 className="font-sans text-lg font-normal text-center text-gray-500 leading-tight mt-1 mb-3 w-9/12 ">
-        You are a member of tinkerub now. Join tinkerhub channels to get
+        You are a member of tinkerub now. Join Learnbase channels to get
         updated.
       </h1>
       <Button

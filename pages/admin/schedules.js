@@ -20,7 +20,7 @@ const Schedules = () => {
 
   const handleWhatsapp = (phone_no) => {
     location.replace(
-      `https://api.whatsapp.com/send?phone=${phone_no}&text=Hi%2C%20we%20are%20from%20TinkerHub.`
+      `https://api.whatsapp.com/send?phone=${phone_no}&text=Hi%2C%20we%20are%20from%20Learnbase.`
     );
   };
 

@@ -81,7 +81,7 @@ const Join = (props) => {
 
   return (
     <div className="md:container md:mx-auto flex flex-col items-center">
-      <img src="input.jpg" className="w-full" alt="s" />
+      <img src="input.jpg" className="w-full md:w-2/4 md:rounded-md" alt="s" />
       <h1 className="mt-3 text-xl font-bold text-gray-600 font-sans">
         Be a community member
       </h1>

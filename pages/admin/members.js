@@ -1,10 +1,9 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import "tailwindcss/tailwind.css";
+import { getAllMembers } from "../../utilities/api";
 //import Button from "../../components/button";
 import styles from "./members.module.css";
-import { getAllMembers } from "../../utilities/api";
-import { useRouter } from "next/router";
-import { getRouteRegex } from "next/dist/next-server/lib/router/utils";
 
 const Members = () => {
   const [allMembers, setAllMembers] = useState([]);

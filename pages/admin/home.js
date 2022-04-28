@@ -1,6 +1,5 @@
 import "tailwindcss/tailwind.css";
 import Button from "../../components/button";
-//import styles from "./admin.module.css";
 import { useEffect, useState } from "react";
 import {
   getMembersCount,
@@ -40,10 +39,10 @@ const Home = () => {
     <div className="md:container md:mx-auto flex flex-col items-center  min-h-screen">
       {/* header starts here */}
       <div className="flex flex-row justify-between p-4 mt-3 w-full">
-        <img src="/logo_b.png" className="w-auto h-10"></img>
+        <img src="/logo_b.png" className="w-auto h-20"></img>
         <Button
           label="Sign Out"
-          classValues="mt-1 pl-4 pr-4 pt-1 pb-1 bg-green-500 text-white rounded-lg font-semibold"
+          classValues="mt-1 pl-4 pr-4 pt-1 pb-1 h-8 bg-green-500 text-white rounded-lg font-semibold"
           onClick={logout}
         />
       </div>
