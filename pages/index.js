@@ -1,7 +1,6 @@
+import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
 import Card from "../components/card";
-import { useRouter } from "next/router";
-import { isMobile } from "react-device-detect";
 
 const Home = () => {
   const router = useRouter();
@@ -14,15 +13,24 @@ const Home = () => {
   return (
     <div className="md:container md:mx-auto">
       {/* header starts here */}
-      <div className="flex flex-row justify-between p-4 mt-3">
+      <div className="flex flex-row justify-between p-4 mt-1 ">
         <img src="/logo_b.png" className="w-auto h-20"></img>
         {/* <h1 className="text-lg font-bold text-gray-600">enactus</h1> */}
-        <h1
-          className="text-sm font-normal text-gray-600"
-          onClick={() => router.push("/join")}
-        >
-          Join Now
-        </h1>
+
+        <div className="flex flex-row items-center">
+          <h1
+            className="text-sm font-normal text-gray-600"
+            onClick={() => router.push("/join")}
+          >
+            Join Now
+          </h1>
+          <button
+            className="mt-3 pl-7 pr-7 p-2 bg-yellow-400 ml-6 rounded font-semibold text-white"
+            onClick={() => router.push("/admin/login")}
+          >
+            Login
+          </button>
+        </div>
       </div>
       {/* header ends here */}
 
@@ -35,7 +43,7 @@ const Home = () => {
           individuals, who could all be a valuable asset in your journey
         </h1>
         <button
-          className="mt-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold"
+          className="mt-3 pl-7 pr-7 p-2 bg-yellow-400 rounded font-semibold text-white"
           onClick={() => router.push("/join")}
         >
           JOIN NOW

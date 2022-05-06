@@ -16,27 +16,32 @@ const Login = () => {
 
   useEffect(() => {
     //redirect to dashboard if already logined
-    if (localStorage.getItem("useremail")) {
-      router.push("/admin/home");
+    if (localStorage.getItem("token") && localStorage.getItem("loginExpiry")) {
+      if (localStorage.getItem("loginExpiry") > Date.now())
+        //console.log(localStorage.getItem("token"));
+        router.push("/admin/home");
     }
   }, []);
 
-  const handleLoginClick = async () => {
-    if (!userDetails.email || !userDetails.password) return;
-    setIsError(false);
+  const handleSignUpClick = async () => {
     setIsLoading(true);
-    const { data } = await supabase
-      .from("members")
-      .select()
-      .eq("email", userDetails.email)
-      .eq("password", userDetails.password);
+    const { user, session, error } = await supabase.auth.signIn(userDetails);
+    //if (user) console.log(user);
+
     //handling login errors
-    if (data.length < 1) {
+    if (error) {
+      console.log(error);
       setIsError(true);
-      setErrorMessage("Password or email is incorrect");
-    } else {
-      localStorage.setItem("useremail", data[0].email);
-      localStorage.setItem("userid", data[0].id);
+      setErrorMessage(error.message);
+    }
+    if (session) {
+      //console.log(session);
+
+      //if login details are correct remove existing user
+      localStorage.removeItem("token");
+      //adding new user
+      localStorage.setItem("token", session.access_token);
+      localStorage.setItem("loginExpiry", session.expires_at);
       router.push("/admin/home");
     }
     setIsLoading(false);
@@ -81,7 +86,7 @@ const Login = () => {
       <Button
         label="Log in"
         classValues="mt-3 mb-5 pl-7 pr-7 pt-2 pb-2 bg-blue-600 text-white rounded-lg font-semibold w-4/5"
-        onClick={handleLoginClick}
+        onClick={handleSignUpClick}
         isLoading={isLoading}
       />
     </div>
