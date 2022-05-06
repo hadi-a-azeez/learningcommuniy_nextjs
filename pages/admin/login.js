@@ -37,7 +37,11 @@ const Login = () => {
     } else {
       localStorage.setItem("useremail", data[0].email);
       localStorage.setItem("userid", data[0].id);
-      router.push("/admin/home");
+      if (data[0].role == "admin") {
+        router.push("/admin/home");
+      } else {
+        router.push("/user/home");
+      }
     }
     setIsLoading(false);
   };
