@@ -21,6 +21,14 @@ export const getSchedulesCount = async () => {
   if (error) console.log(error);
   else return count;
 };
+export const getSchedulesCountSingle = async () => {
+  const { data, error, count } = await supabase
+    .from("schedules")
+    .select("id", { count: "exact" })
+    .eq("booked_by", 2);
+  if (error) console.log(error);
+  else return count;
+};
 export const getAllMembers = async () => {
   const { data, error } = await supabase
     .from("members")

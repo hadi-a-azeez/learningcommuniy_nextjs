@@ -43,7 +43,7 @@ const Home = () => {
           <h2 onClick={() => router.push("/chatroom")}>Chatroom</h2>
           <h2 onClick={() => router.push("/admin/members")}>Members</h2>
           <h2 onClick={() => router.push("/admin/schedules")}>Schedules</h2>
-          <h2 onClick={() => router.push("/admin/volenteers")}>Volenteers</h2>
+          <h2 onClick={() => router.push("/admin/volunteers")}>volunteers</h2>
         </div>
         <Button
           label="Sign Out"
